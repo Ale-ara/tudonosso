@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre o Alessandro</title>
+  <style>
+    body {
+      background: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 0; padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: rgba(30, 30, 30, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(31, 58, 77, 0.7);
+    }
+    button {
+      padding: 12px 25px;
+      border-radius: 10px;
+      border: none;
+      background: #1f3a4d;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #0e2433;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      width: 250px;
+      font-size: 1.1rem;
+      margin-right: 10px;
+      outline: none;
+      background-color: #1f1f1f;
+      color: white;
+    }
+    .error {
+      color: #ff5e5e;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .info {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      color: #fff;
+      text-align: left;
+    }
+    .mensagem-musica {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #b0c4d8;
+    }
+
+    .back-link {
+  display: inline-block;       /* Para que o padding funcione */
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  background: #1f3a4d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  text-decoration: none;       /* Remove o sublinhado padrão do link */
+  text-align: center;          /* Centraliza texto no botão */
+}
+
+.back-link:hover {
+  background: #0e2433;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container" id="startScreen">
+    <h1>Sobre o Alessandro</h1>
+    <p>Essa informação é muito confidencial. Você precisa ter muito cuidado, peça a senha diretamente para o seu namorado, e ore muito para ele te passar essa senha...</p>
+    <button id="startBtn">Avançar</button>
+  </div>
+
+  <div class="container" id="senhaContainer" style="display:none;">
+    <p class="mensagem-musica">Vai escutando essa música legalzinha enquanto isso...</p>
+    <input type="password" id="senha" placeholder="Digite a senha" />
+    <button onclick="verificarSenha()">Enviar</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <div class="container info" id="info" style="display:none;">
+    <h2>Alessandro</h2>
+    <p><strong>Nome:</strong> Alessandro Araujo</p>
+    <p><strong>Idade:</strong> 24 anos</p>
+    <p><strong>Profissão:</strong> Ser o namorado da Larissa</p>
+    <p><strong>História:</strong> "Descubra", já falei tanto de mim dona Larissa, que você já sabe sobre minha vida na palma da sua mão praticamente, mas vou te dar informações fortes aqui, nome do meu pai é Alex, mãe Cristiana e irmã se chama Alexia.</p>
+     <p>Mas te deixarei um bônus, nome do meu pai e Alex, mãe se chama Cristiana, irmã se chama Alexia.</p>
+      <p>As demais coisas, prefiro falar com minha própria voz, fotos, afins, te amo.</p>
+      <a href="../index.html" class="back-link">Voltar ao menu principal</a>
+</div>
+
+  <audio id="bgMusic" loop>
+    <source src="audio/musicaale.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const senhaCorreta = "amor123";
+    const audio = document.getElementById('bgMusic');
+    const startScreen = document.getElementById('startScreen');
+    const senhaContainer = document.getElementById('senhaContainer');
+    const infoDiv = document.getElementById('info');
+    const errorDiv = document.getElementById('error');
+    const startBtn = document.getElementById('startBtn');
+
+    startBtn.addEventListener('click', () => {
+      startScreen.style.display = 'none';
+      senhaContainer.style.display = 'block';
+      audio.volume = 0.2;
+      audio.play().catch(() => {
+        console.log('Autoplay bloqueado. O usuário deve interagir para liberar o som.');
+      });
+    });
+
+    function verificarSenha() {
+      const inputSenha = document.getElementById('senha').value.trim();
+
+      if(inputSenha === senhaCorreta) {
+        senhaContainer.style.display = 'none';
+        infoDiv.style.display = 'block';
+        errorDiv.textContent = '';
+        audio.pause();
+      } else {
+        errorDiv.textContent = 'Senha incorreta, tente novamente.';
+        if(audio.paused) audio.play();
+      }
+    }
+function voltarIndex() {
+  window.location.href = 'principal.html'; // Altere o nome do arquivo se necessário
+}
+
+
+  </script>
+</body>
+</html>

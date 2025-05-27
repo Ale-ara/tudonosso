@@ -2,20 +2,81 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para Larissa 💖</title>
-  <link rel="stylesheet" href="css/global.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedido de Namoro 💖 - Galeria</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px 15px;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #4a148c;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ad1457;
+    }
+    a.gallery-link {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 35px;
+      background-color: #ad1457;
+      color: white;
+      text-decoration: none;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    a.gallery-link:hover {
+      background-color: #880e4f;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #ad1457;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    a.back-link:hover {
+      background-color: #880e4f;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Olá, Larissa 💕</h1>
-    <p>O que você gostaria de ver hoje?</p>
+    <h1>Galeria do Nosso Pedido de Namoro 💘</h1>
 
-    <div class="options">
-      <a href="alessandro/alessandro.html" class="card">Você quer saber sobre o Alessandro?</a>
-      <a href="pedido/index.html" class="card">Você quer saber sobre o pedido de namoro?</a>
-      <a href="fotos/index.html" class="card">Você quer ver nossa foto juntos?</a>
-    </div>
+    <a href="https://drive.google.com/drive/folders/1UcG_W642fHknKeT5lyivNo-LoQI86_fi?usp=sharing" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="gallery-link">
+      Clique aqui para ver as fotos e vídeos
+    </a>
+
+    <br />
+
+    <a href="../index.html" class="back-link">Voltar ao menu principal</a>
   </div>
 </body>
 </html>
